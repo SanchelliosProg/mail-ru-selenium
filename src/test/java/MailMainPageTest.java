@@ -12,18 +12,19 @@ import static org.testng.Assert.*;
  * Created by alex on 22.10.16.
  */
 public class MailMainPageTest {
+    private final String MAIL_RU_BASE_URL = "https://mail.ru";
     private MailMainPage page;
     private WebDriver driver;
 
     @BeforeClass
     public void setUp(){
         this.driver = WebDriverFactory.getDriver(TestConfig.FIREFOX);
-        page = new MailMainPage(driver);
+        page = new MailMainPage(driver, MAIL_RU_BASE_URL);
     }
 
     @Test
     public void testOpen() throws Exception {
-        page.open(driver);
+        page.init(driver);
         assertEquals(driver.getTitle(), "Mail.Ru: почта, поиск в интернете, новости, игры");
     }
 
