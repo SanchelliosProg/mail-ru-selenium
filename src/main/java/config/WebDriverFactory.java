@@ -26,7 +26,7 @@ public class WebDriverFactory {
 
     private static WebDriver getFirefoxDriver(){
         System.setProperty("webdriver.gecko.driver",
-                "/home/alex/Programming/Automation/Selenium_practice/mailru/src/main/resources/drivers/geckodriver");
+                "./resources/drivers/geckodriver");
         return new FirefoxDriver();
     }
 }
