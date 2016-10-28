@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
  * Created by alex on 22.10.16.
  */
 public class MailMainPage extends BasePage{
-
     //LOGIN
     private final String LOGIN_CSS_SELECTOR = "#mailbox__login";
     private final String PASSWORD_CSS_SELECTOR = "#mailbox__password";
@@ -22,40 +21,47 @@ public class MailMainPage extends BasePage{
 
 
 
-    public MailMainPage(WebDriver driver, String baseUrl){
-        super(driver, baseUrl);
+    public MailMainPage(WebDriver driver){
+        super(driver);
         this.driver = driver;
+        setTitleFragment("Mail.Ru: почта, поиск в интернете, новости, игры");
     }
 
-    public void init(WebDriver driver){
+    public void openPage(WebDriver driver){
         driver.navigate().to(baseUrl);
     }
 
-    protected void init(){
+    protected void setBaseUrl() {
+        super.baseUrl = "https://mail.ru";
+    }
+
+
+    protected void openPage(){
         this.driver.navigate().to(baseUrl);
     }
 
 
-    public void authorise(String login, String password){
-        init();
+    public InboxPage authorise(String login, String password){
+        openPage();
         input(login, By.cssSelector(LOGIN_CSS_SELECTOR));
         input(password, By.cssSelector(PASSWORD_CSS_SELECTOR));
         click(By.cssSelector(AUTH_BUTTON_CSS_SELECTOR));
+        return new InboxPage(driver);
     }
 
     public void search(String searchString){
-        init();
+        openPage();
         input(searchString, By.cssSelector(SEARCH_FIELD_SELECTOR));
         click(By.cssSelector(SEARCH_BUTTON_SELECTOR));
     }
 
     public void openPictures() {
-        init();
+        openPage();
         click(By.xpath(PICTURES_XPATH));
     }
 
     public void openVideos() {
-        init();
+        openPage();
         click(By.xpath(VIDEOS_XPATH));
     }
 }

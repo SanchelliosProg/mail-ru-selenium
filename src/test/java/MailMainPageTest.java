@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pages.InboxPage;
 import pages.MailMainPage;
 
 import static org.testng.Assert.*;
@@ -12,27 +13,26 @@ import static org.testng.Assert.*;
  * Created by alex on 22.10.16.
  */
 public class MailMainPageTest {
-    private final String MAIL_RU_BASE_URL = "https://mail.ru";
     private MailMainPage page;
     private WebDriver driver;
 
     @BeforeClass
     public void setUp(){
         this.driver = WebDriverFactory.getDriver(TestConfig.FIREFOX);
-        page = new MailMainPage(driver, MAIL_RU_BASE_URL);
+        page = new MailMainPage(driver);
     }
 
     @Test
     public void testOpen() throws Exception {
-        page.init(driver);
-        assertEquals(driver.getTitle(), "Mail.Ru: почта, поиск в интернете, новости, игры");
+        page.openPage(driver);
+        assertEquals(page.init(), true);
     }
 
     @Test
     public void testLogin() throws InterruptedException {
-        page.authorise("isildurelrosovich", "my_prescious_2016");
+        InboxPage inboxPage = page.authorise("isildurelrosovich", "my_prescious_2016");
         waitForSeconds(5);
-        assertEquals(driver.getTitle().contains("Входящие - Почта Mail.Ru"), true);
+        assertEquals(inboxPage.init(), true);
     }
 
     @Test
