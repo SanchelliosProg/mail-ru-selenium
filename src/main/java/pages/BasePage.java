@@ -1,5 +1,6 @@
 package pages;
 
+import config.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,8 +13,8 @@ public abstract class BasePage {
     protected WebDriver driver;
     protected String baseUrl;
 
-    public BasePage(WebDriver driver){
-        this.driver = driver;
+    public BasePage(){
+        driver = WebDriverFactory.getInstance();
         setBaseUrl();
     }
 

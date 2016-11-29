@@ -18,8 +18,8 @@ public class MailMainPageTest {
 
     @BeforeClass
     public void setUp(){
-        this.driver = WebDriverFactory.getDriver(TestConfig.FIREFOX);
-        page = new MailMainPage(driver);
+        this.driver = WebDriverFactory.getInstance();
+        page = new MailMainPage();
     }
 
     @Test
@@ -66,5 +66,4 @@ public class MailMainPageTest {
         driver.close();
         driver.quit();
     }
-
 }

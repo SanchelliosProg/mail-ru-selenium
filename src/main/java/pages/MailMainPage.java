@@ -1,5 +1,6 @@
 package pages;
 
+import config.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -19,11 +20,8 @@ public class MailMainPage extends BasePage{
 
     private WebDriver driver;
 
-
-
-    public MailMainPage(WebDriver driver){
-        super(driver);
-        this.driver = driver;
+    public MailMainPage(){
+        this.driver = WebDriverFactory.getInstance();
         setTitleFragment("Mail.Ru: почта, поиск в интернете, новости, игры");
     }
 
@@ -46,7 +44,7 @@ public class MailMainPage extends BasePage{
         input(login, By.cssSelector(LOGIN_CSS_SELECTOR));
         input(password, By.cssSelector(PASSWORD_CSS_SELECTOR));
         click(By.cssSelector(AUTH_BUTTON_CSS_SELECTOR));
-        return new InboxPage(driver);
+        return new InboxPage();
     }
 
     public void search(String searchString){
