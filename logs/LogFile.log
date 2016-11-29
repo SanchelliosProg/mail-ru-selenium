@@ -1,4 +1,4 @@
-ноя 29, 2016 1:13:27 PM config.WebDriverFactory getSystemName
+ноя 29, 2016 1:26:53 PM config.WebDriverFactory getSystemName
 INFO: OS: Windows 7
-ноя 29, 2016 1:13:30 PM config.WebDriverFactory getInstance
+ноя 29, 2016 1:26:56 PM config.WebDriverFactory getInstance
 INFO: Driver is initialized

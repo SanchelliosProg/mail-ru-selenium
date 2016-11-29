@@ -5,11 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
-
 /**
  * Created by alex on 22.10.16.
  */
@@ -20,8 +15,8 @@ public class WebDriverFactory {
     private final static String DIR = "./resources/drivers/";
     private static WebDriver driver;
 
-    public static WebDriver getInstance(){
-        if (driver == null){
+    public static WebDriver getInstance() {
+        if (driver == null) {
             driver = getDriver();
             LogHelper.getInstance().info("Driver is initialized");
             return driver;
@@ -30,21 +25,21 @@ public class WebDriverFactory {
         }
     }
 
-    private static WebDriver getDriver(){
+    private static WebDriver getDriver() {
         String browser = getBrowser();
-        if (browser.equals(TestConfig.CHROME)){
+        if (browser.equals(TestConfig.CHROME)) {
             return getChromeDriver();
-        }else if (browser.equals(TestConfig.FIREFOX)){
+        } else if (browser.equals(TestConfig.FIREFOX)) {
             return getFirefoxDriver();
-        }else {
+        } else {
             return getChromeDriver();
         }
     }
 
-    private static WebDriver getChromeDriver(){
+    private static WebDriver getChromeDriver() {
         String driverName = "webdriver.chrome.driver";
 
-        switch (getSystemName()){
+        switch (getSystemName()) {
             case WIN_10:
                 System.setProperty(driverName, DIR + "windows_10/chromedriver.exe");
                 break;
@@ -59,9 +54,9 @@ public class WebDriverFactory {
         return new ChromeDriver();
     }
 
-    private static WebDriver getFirefoxDriver(){
+    private static WebDriver getFirefoxDriver() {
         String driverName = "webdriver.gecko.driver";
-        switch (getSystemName()){
+        switch (getSystemName()) {
             case WIN_10:
                 System.setProperty(driverName,
                         DIR + "windows_10/geckodriver.exe");
@@ -82,27 +77,17 @@ public class WebDriverFactory {
 
     private static int getSystemName() {
         String osName = System.getProperty("os.name");
-        LogHelper.getInstance().info("OS: "+osName);
-        if(osName.equals("Windows 10")){
+        LogHelper.getInstance().info("OS: " + osName);
+        if (osName.equals("Windows 10")) {
             return WIN_10;
-        }else if (osName.equals("Windows 7")){
+        } else if (osName.equals("Windows 7")) {
             return WIN_7;
-        }else {
+        } else {
             return LINUX;
         }
     }
 
-    private static String getBrowser(){
-        Properties properties = new Properties();
-        InputStream inputStream;
-
-        try{
-            inputStream = new FileInputStream("./resources/config.properties");
-            properties.load(inputStream);
-            return properties.getProperty("browser");
-        }catch (IOException ex){
-            ex.printStackTrace();
-            return null;
-        }
+    private static String getBrowser() {
+        return PropertyManager.getBrowserName();
     }
 }
