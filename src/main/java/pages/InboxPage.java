@@ -7,9 +7,10 @@ import org.openqa.selenium.WebDriver;
  * Created by alex on 28.10.16.
  */
 public class InboxPage extends BasePage {
+    private final String TITLE = "Входящие - Почта Mail.Ru";
     public InboxPage() {
         this.driver = WebDriverFactory.getInstance();
-        setTitleFragment("Входящие - Почта Mail.Ru");
+        setTitleFragment(TITLE);
     }
 
     protected void setBaseUrl() {
