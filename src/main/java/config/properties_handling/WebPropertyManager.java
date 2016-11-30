@@ -19,4 +19,8 @@ public class WebPropertyManager extends PropertyManager {
             return instance;
         }
     }
+
+    public String getBaseUrl(){
+        return properties.getProperty(PropertyNames.BASE_URL.getPropertyName());
+    }
 }
