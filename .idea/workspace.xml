@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e3b9bfe-fdf4-4837-9e5e-86dc8ebe4e5e" name="Default" comment="" />
+    <list default="true" id="1e3b9bfe-fdf4-4837-9e5e-86dc8ebe4e5e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -65,11 +67,13 @@
       <file leaf-file-name="WebPropertyManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/config/properties_handling/WebPropertyManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="1" lean-forward="false" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+            <state relative-caret-position="391">
+              <caret line="23" column="80" lean-forward="false" selection-start-line="23" selection-start-column="80" selection-end-line="23" selection-end-column="80" />
               <folding>
                 <element signature="e#311#312#0" expanded="true" />
                 <element signature="e#344#345#0" expanded="true" />
+                <element signature="e#607#608#0" expanded="true" />
+                <element signature="e#694#695#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -914,7 +918,8 @@
     <MESSAGE value="&quot;major update&quot;" />
     <MESSAGE value="added property manager" />
     <MESSAGE value="&quot;added property manager&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;added property manager&quot;" />
+    <MESSAGE value="minor" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1254,11 +1259,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/config/properties_handling/WebPropertyManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="1" lean-forward="false" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+        <state relative-caret-position="391">
+          <caret line="23" column="80" lean-forward="false" selection-start-line="23" selection-start-column="80" selection-end-line="23" selection-end-column="80" />
           <folding>
             <element signature="e#311#312#0" expanded="true" />
             <element signature="e#344#345#0" expanded="true" />
+            <element signature="e#607#608#0" expanded="true" />
+            <element signature="e#694#695#0" expanded="true" />
           </folding>
         </state>
       </provider>
