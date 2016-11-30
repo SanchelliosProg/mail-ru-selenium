@@ -1,9 +1,12 @@
 package config;
 
 
+import config.properties_handling.PropertyManager;
+import config.properties_handling.PropertyNames;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import utils.UndefinedOSException;
 
 /**
  * Created by alex on 22.10.16.
@@ -17,7 +20,11 @@ public class WebDriverFactory {
 
     public static WebDriver getInstance() {
         if (driver == null) {
-            driver = getDriver();
+            try {
+                driver = getDriver();
+            } catch (UndefinedOSException e) {
+                e.printStackTrace();
+            }
             LogHelper.getInstance().info("Driver is initialized");
             return driver;
         } else {
@@ -25,28 +32,33 @@ public class WebDriverFactory {
         }
     }
 
-    private static WebDriver getDriver() {
+    private static WebDriver getDriver() throws UndefinedOSException {
         String browser = getBrowser();
         if (browser.equals(TestConfig.CHROME)) {
+            LogHelper.getInstance().info("Loading Chrome driver");
             return getChromeDriver();
         } else if (browser.equals(TestConfig.FIREFOX)) {
+            LogHelper.getInstance().info("Loading Chrome driver");
             return getFirefoxDriver();
         } else {
             return getChromeDriver();
         }
     }
 
-    private static WebDriver getChromeDriver() {
+    private static WebDriver getChromeDriver() throws UndefinedOSException {
         String driverName = "webdriver.chrome.driver";
 
         switch (getSystemName()) {
             case WIN_10:
+                LogHelper.getInstance().info("Getting driver for win-10");
                 System.setProperty(driverName, DIR + "windows_10/chromedriver.exe");
                 break;
             case LINUX:
-                System.setProperty(driverName, DIR + "linux/chromedriver.exe");
+                LogHelper.getInstance().info("Getting driver for linux");
+                System.setProperty(driverName, DIR + "linux/chromedriver");
                 break;
             case WIN_7:
+                LogHelper.getInstance().info("Getting driver for win-7");
                 System.setProperty(driverName, DIR + "win_7/chromedriver.exe");
             default:
                 break;
@@ -54,7 +66,7 @@ public class WebDriverFactory {
         return new ChromeDriver();
     }
 
-    private static WebDriver getFirefoxDriver() {
+    private static WebDriver getFirefoxDriver() throws UndefinedOSException {
         String driverName = "webdriver.gecko.driver";
         switch (getSystemName()) {
             case WIN_10:
@@ -75,19 +87,23 @@ public class WebDriverFactory {
         return new FirefoxDriver();
     }
 
-    private static int getSystemName() {
+    private static int getSystemName() throws UndefinedOSException {
         String osName = System.getProperty("os.name");
         LogHelper.getInstance().info("OS: " + osName);
         if (osName.equals("Windows 10")) {
             return WIN_10;
         } else if (osName.equals("Windows 7")) {
             return WIN_7;
-        } else {
+        } else if (osName.equals("Linux")) {
             return LINUX;
+        } else {
+            throw new UndefinedOSException("Current OS is not defined. Running Linux as default.");
         }
     }
 
     private static String getBrowser() {
-        return PropertyManager.getBrowserName();
+        String browserName = PropertyManager.getInstance().getBrowserName();
+        LogHelper.getInstance().info("Browser name - " + browserName);
+        return PropertyManager.getInstance().getBrowserName();
     }
 }

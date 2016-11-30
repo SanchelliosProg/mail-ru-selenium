@@ -1,9 +1,10 @@
 package config;
 
-import java.io.FileInputStream;
+import config.properties_handling.PropertyManager;
+
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,6 +15,7 @@ import java.util.logging.SimpleFormatter;
  */
 public class LogHelper {
     private static Logger logger;
+    private static PropertyManager propertyManager = PropertyManager.getInstance();
 
     public static Logger getInstance() {
         if (logger == null) {
@@ -38,29 +40,41 @@ public class LogHelper {
     }
 
     private static void setLoggingLevel() {
-        String logLevel = PropertyManager.getLogLevel();
+        String logLevel = propertyManager.getLogLevel();
         logger.info("LOG LEVEL: " + logLevel);
-        if (logLevel.equals("ALL")) {
-            logger.setLevel(Level.ALL);
-        } else if (logLevel.equals("SEVERE")) {
-            logger.setLevel(Level.SEVERE);
-        } else if (logLevel.equals("WARNING")) {
-            logger.setLevel(Level.WARNING);
-        } else if (logLevel.equals("CONFIG")) {
-            logger.setLevel(Level.CONFIG);
-        } else if (logLevel.equals("FINE")) {
-            logger.setLevel(Level.FINE);
-        } else if (logLevel.equals("INFO")) {
-            logger.setLevel(Level.INFO);
-        } else if (logLevel.equals("FINER")) {
-            logger.setLevel(Level.FINER);
-        } else if (logLevel.equals("FINEST")) {
-            logger.setLevel(Level.FINEST);
-        } else if (logLevel.equals("OFF")) {
-            logger.setLevel(Level.OFF);
-        } else {
-            logger.setLevel(Level.ALL);
-        }
+        Map<String, Level> mapOfLevels = new HashMap<String, Level>();
+        mapOfLevels.put("ALL", Level.ALL);
+        mapOfLevels.put("SEVERE", Level.SEVERE);
+        mapOfLevels.put("WARNING", Level.WARNING);
+        mapOfLevels.put("CONFIG", Level.CONFIG);
+        mapOfLevels.put("FINE", Level.FINE);
+        mapOfLevels.put("FINER", Level.FINER);
+        mapOfLevels.put("FINEST", Level.FINEST);
+        mapOfLevels.put("INFO", Level.INFO);
+        mapOfLevels.put("OFF", Level.OFF);
+        //TODO Create map here (STRING, LEVEL)
+//        if (logLevel.equals("ALL")) {
+//            logger.setLevel(Level.ALL);
+//        } else if (logLevel.equals("SEVERE")) {
+//            logger.setLevel(Level.SEVERE);
+//        } else if (logLevel.equals("WARNING")) {
+//            logger.setLevel(Level.WARNING);
+//        } else if (logLevel.equals("CONFIG")) {
+//            logger.setLevel(Level.CONFIG);
+//        } else if (logLevel.equals("FINE")) {
+//            logger.setLevel(Level.FINE);
+//        } else if (logLevel.equals("INFO")) {
+//            logger.setLevel(Level.INFO);
+//        } else if (logLevel.equals("FINER")) {
+//            logger.setLevel(Level.FINER);
+//        } else if (logLevel.equals("FINEST")) {
+//            logger.setLevel(Level.FINEST);
+//        } else if (logLevel.equals("OFF")) {
+//            logger.setLevel(Level.OFF);
+//        } else {
+//            logger.setLevel(Level.ALL);
+//        }
+        logger.setLevel(mapOfLevels.get(logLevel));
     }
 }
 

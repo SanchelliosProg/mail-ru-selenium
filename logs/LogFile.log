@@ -1,4 +1,14 @@
-ноя 29, 2016 1:26:53 PM config.WebDriverFactory getSystemName
-INFO: OS: Windows 7
-ноя 29, 2016 1:26:56 PM config.WebDriverFactory getInstance
+ноя 30, 2016 9:43:17 AM config.properties_handling.PropertyManager getLogLevel
+INFO: logLevel
+ноя 30, 2016 9:43:17 AM config.LogHelper setLoggingLevel
+INFO: LOG LEVEL: ALL
+ноя 30, 2016 9:43:17 AM config.WebDriverFactory getBrowser
+INFO: Browser name - chrome
+ноя 30, 2016 9:43:17 AM config.WebDriverFactory getDriver
+INFO: Loading Chrome driver
+ноя 30, 2016 9:43:17 AM config.WebDriverFactory getSystemName
+INFO: OS: Linux
+ноя 30, 2016 9:43:17 AM config.WebDriverFactory getChromeDriver
+INFO: Getting driver for linux
+ноя 30, 2016 9:43:18 AM config.WebDriverFactory getInstance
 INFO: Driver is initialized
