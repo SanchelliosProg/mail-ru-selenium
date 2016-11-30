@@ -1,6 +1,7 @@
 package pages;
 
 import config.WebDriverFactory;
+import config.properties_handling.WebPropertyManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -30,7 +31,7 @@ public class MailMainPage extends BasePage{
     }
 
     protected void setBaseUrl() {
-        super.baseUrl = "https://mail.ru";
+        super.baseUrl = WebPropertyManager.getInstance().getBaseUrl();
     }
 
 
