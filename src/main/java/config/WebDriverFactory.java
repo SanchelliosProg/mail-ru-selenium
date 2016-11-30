@@ -1,8 +1,7 @@
 package config;
 
 
-import config.properties_handling.PropertyManager;
-import config.properties_handling.PropertyNames;
+import config.properties_handling.ConfigPropertyManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -102,8 +101,8 @@ public class WebDriverFactory {
     }
 
     private static String getBrowser() {
-        String browserName = PropertyManager.getInstance().getBrowserName();
+        String browserName = ConfigPropertyManager.getInstance().getBrowserName();
         LogHelper.getInstance().info("Browser name - " + browserName);
-        return PropertyManager.getInstance().getBrowserName();
+        return ConfigPropertyManager.getInstance().getBrowserName();
     }
 }

@@ -5,7 +5,8 @@ package config.properties_handling;
  */
 public enum  PropertyNames {
     LOG_LEVEL ("logLevel"),
-    BROWSER_NAME ("browser");
+    BROWSER_NAME ("browser"),
+    BASE_URL ("base_url");
 
     private final String name;
 

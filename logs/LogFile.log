@@ -1,14 +1,14 @@
-ноя 30, 2016 9:43:17 AM config.properties_handling.PropertyManager getLogLevel
+ноя 30, 2016 1:45:39 PM config.properties_handling.ConfigPropertyManager getLogLevel
 INFO: logLevel
-ноя 30, 2016 9:43:17 AM config.LogHelper setLoggingLevel
+ноя 30, 2016 1:45:39 PM config.LogHelper setLoggingLevel
 INFO: LOG LEVEL: ALL
-ноя 30, 2016 9:43:17 AM config.WebDriverFactory getBrowser
+ноя 30, 2016 1:45:39 PM config.WebDriverFactory getBrowser
 INFO: Browser name - chrome
-ноя 30, 2016 9:43:17 AM config.WebDriverFactory getDriver
+ноя 30, 2016 1:45:39 PM config.WebDriverFactory getDriver
 INFO: Loading Chrome driver
-ноя 30, 2016 9:43:17 AM config.WebDriverFactory getSystemName
-INFO: OS: Linux
-ноя 30, 2016 9:43:17 AM config.WebDriverFactory getChromeDriver
-INFO: Getting driver for linux
-ноя 30, 2016 9:43:18 AM config.WebDriverFactory getInstance
+ноя 30, 2016 1:45:39 PM config.WebDriverFactory getSystemName
+INFO: OS: Windows 7
+ноя 30, 2016 1:45:39 PM config.WebDriverFactory getChromeDriver
+INFO: Getting driver for win-7
+ноя 30, 2016 1:45:42 PM config.WebDriverFactory getInstance
 INFO: Driver is initialized
