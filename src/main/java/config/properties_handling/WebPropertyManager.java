@@ -5,7 +5,7 @@ package config.properties_handling;
  */
 public class WebPropertyManager extends PropertyManager {
     private static WebPropertyManager instance;
-    private static final String PATH = "./resources/web.properties";
+    private static final String PATH = "./resources/url.properties";
 
     protected WebPropertyManager(String pathToFile) {
         super(pathToFile);
